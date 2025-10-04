@@ -1,0 +1,18 @@
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+crash.log
+
+# Ansible
+*.retry
+
+# Python (if using boto3/Lambda)
+__pycache__/
+*.pyc
+.venv/
+env/
+
+# VSCode
+.vscode/
