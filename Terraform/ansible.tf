@@ -1,29 +1,3 @@
-# # Run Ansible on the VM itself
-# resource "null_resource" "ansible_provision" {
-#   depends_on = [aws_instance.web]
-
-#   provisioner "remote-exec" {
-#     inline = [
-#       "sudo apt update -y",
-#       "sudo apt install -y ansible git",
-#       "git clone https://github.com/your-repo/aws-security-automation.git || echo 'Using existing repo'",
-#       "cd aws-security-automation",
-#       "ansible-galaxy collection install community.docker",
-#       "echo '[webserver]' > /tmp/inventory",
-#       "echo 'localhost ansible_connection=local' >> /tmp/inventory",
-#       "ansible-playbook -i /tmp/inventory ansible/playbook.yml"
-#     ]
-
-#     connection {
-#       type        = "ssh"
-#       user        = "ubuntu"
-#       private_key = file(var.key_path)
-#       host        = aws_instance.web.public_ip
-#     }
-#   }
-# }
-
-
 
 # Generate Ansible inventory file automatically
 resource "local_file" "ansible_inventory" {
