@@ -1,9 +1,8 @@
 # Terraform
-*.tfstate
-*.tfstate.*
-.terraform/
-.terraform.lock.hcl
-crash.log
+Terraform/terraform.tfstate
+Terraform/terraform.tfstate.backup
+Terraform/.terraform/
+Terraform/terraform.tfvars
 
 # Ansible
 *.retry

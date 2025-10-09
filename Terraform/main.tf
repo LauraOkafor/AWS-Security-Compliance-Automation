@@ -84,9 +84,11 @@ resource "aws_instance" "web" {
   instance_type          = var.instance_type
   subnet_id              = aws_subnet.public.id
   vpc_security_group_ids = [aws_security_group.web_sg.id]
+  key_name               = var.key_pair_name
 
   tags = { Name = "${var.project_name}-ec2" }
 }
+
 
 # S3 Bucket
 resource "aws_s3_bucket" "logs" {
@@ -107,3 +109,12 @@ resource "aws_iam_role" "ec2_role" {
     }]
   })
 }
+
+# resource "local_file" "ansible_inventory" {
+#   content = templatefile("${path.module}/../ansible/inventory.tpl", {
+#     ec2_public_ip = aws_instance.web.public_ip
+#     ssh_key_path  = "~/.ssh/your-key.pem"
+#   })
+#   filename = "${path.module}/../ansible/inventory.ini"
+# }
+
