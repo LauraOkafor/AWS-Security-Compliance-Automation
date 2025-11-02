@@ -21,3 +21,8 @@ variable "key_pair_name" {
   description = "Name of existing AWS key pair"
   type        = string
 }
+
+variable "alert_email" {
+  description = "Email to receive remediation alerts"
+  type        = string
+}
